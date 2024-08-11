@@ -1,5 +1,8 @@
 ## Hi there 👋
-
+🎓 Estudiante de Analista Programador.
+💻 Aprendiendo a programar en ["Python", "JavaScript", "HTML", "CSS",].
+🔧 Explorando el uso de Git para el control de versiones y la colaboración en proyectos.
+📚 Interesado en mejorar mis habilidades y aprender nuevas tecnologías cada día.
 <!--
 **JoseAlberto13/JoseAlberto13** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
