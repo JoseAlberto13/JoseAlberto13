@@ -223,10 +223,37 @@ año_nacimiento = 1998
 print(f"Tienes {año_actual - año_nacimiento} años")
 
 # 28 "Piedra, Papel o Tijera: Implemente el juego de piedra, papel o tijera. (Usuario vs Computadora)"
-opciones = {"piedra", "papel", "tijera"}
-# wins = 0
-# while wins < 3:
-#     op_Usuario = input("Ingresa tu movimiento: ")
+import random
+mov = ["piedra", "papel", "tijera"]
+print('Juega al Piedra, Papel o Tijera contra la PC :D "Escribe tu elección"\nGana el mejor de tres')
+wins_USER = 0
+wins_PC = 0
+combats = 0
+while combats < 3:
+    mov_USER = input("Elige tu movimiento: ")
+    mov_USER = mov_USER.lower() #para que no falle en la escritura de las opciones que elija mi agradable usuario
+    mov_PC = random.choice(mov) #La función choice(colección) de la libreria de ramdon, nos permite hacer una elección aleatoria dentro de una coleccion de elementos
+    if mov_USER not in mov: #si el mov del usuario no es correcto, lo mandamos a freir mono
+        print("Elige entre Piedra, Papel o Tijera! Inteligente...")
+    elif mov_USER == "piedra" and mov_PC == "tijera" or mov_USER == "tijera" and mov_PC == "papel" or mov_USER == "papel" and mov_PC == "piedra": #escenarios donde el usuario gana
+        wins_USER += 1
+        combats += 1
+        print(f"Elegiste {mov_USER} vs {mov_PC}\nGanaste!")
+    elif mov_PC == "piedra" and mov_USER == "tijera" or mov_PC == "tijera" and mov_USER == "papel" or mov_PC == "papel" and mov_USER == "piedra": #escenarios donde el pc gana
+        wins_PC += 1 
+        combats += 1
+        print(f"Elegiste {mov_USER} vs {mov_PC}\nLa PC Gana")
+    else:
+        combats += 1
+        print(f"Elegiste {mov_USER} vs {mov_PC}\nEmpate!")
+        
+print(f"Combates: {combats}\nJugador: {wins_USER}\nPC: {wins_PC}") #damos información del enfrentamiento entre el pc y el usuario :D
+if wins_USER == wins_PC:
+    print("Empate, No hay Ganadores!") 
+elif wins_USER > wins_PC:
+    print("¡Felicitaciones, Eres el Ganador!")
+else:
+    print("Buen Intento, La PC Gana :C")
     
 # 29 "Conteo Regresivo: Crea un contador que cuente hacia atrás desde un número n hasta 0"
 num1 = 3
