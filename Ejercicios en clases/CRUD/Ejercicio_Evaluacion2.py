@@ -59,9 +59,20 @@ def buscar_prodcuto(nID):
     # Imprimir el producto en formato de tabla sin mostrar el índice
     print(producto.to_string(index=False))    
         
-
-def suma_totales():
-    pass
+# Suma el total del valor del o los articulos, habra que estudiar más sobre como mostrar los datos de una manera más sencilla y bonita.
+def suma_totales(nID):
+    if nID == 0:
+        suma = 0
+        for i in range(0,len(productos["id"])):
+            print(f"{productos["cantidad"][i]} {productos["nombre"][i]} = {productos["cantidad"][i]*productos["valor_unitario"][i]}")
+            aux = productos["valor_unitario"][i]*productos["cantidad"][i]
+            suma += aux
+        return suma
+    elif nID not in productos["id"]:
+        print("Ingresa un ID válido")
+    else:
+        i = productos["id"].index(nID)
+        return f"Producto:{productos["nombre"][i]} Cant:{productos["cantidad"][i]} Valor Unit:{productos["valor_unitario"][i]} = {productos["cantidad"][i]*productos["valor_unitario"][i]}"
 
 # Main
 
@@ -79,7 +90,7 @@ productos["codigo_producto"] = []
 idProduct = 201
 
 while True:
-    print("GESTIÓN DE BODEGA")
+    print("\nGESTIÓN DE BODEGA")
     opcion = input("""Elige una de las siguientes opciones
 1. Listar Productos
 2. Registrar Producto
@@ -149,7 +160,13 @@ while True:
                 print(f"El 'ID' ingresado no existe {e}")
 
         case "6":
-            pass
+            os.system("cls")
+            print("CALCULA EL VALOR DEL INVENTARIO")
+            try:
+                idCalcul = int(input("Ingrese el 'ID' del producto que desee calcular o ingrese '0' para calcular el total del inventario: "))
+                print(f"{suma_totales(idCalcul)}")
+            except:
+                print("Ingrese un valor válido, invalido")
 
         case "7":
             os.system("cls")
