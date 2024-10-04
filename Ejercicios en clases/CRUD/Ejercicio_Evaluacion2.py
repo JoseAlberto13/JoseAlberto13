@@ -32,7 +32,7 @@ def actualizar_producto(nID,nombre, cantidad, valorUnit, qStock, fecha, codigo):
     if len(valorUnit) > 0:
         productos["valor_unitario"][nID] = float(valorUnit)
     if len(qStock) > 0:
-        productos["limite_quiebre_stock"][nID] = int(qStock)
+        productos["limite_quiebre_stock"][nID] = float(qStock)
     if len(fecha) > 0:
         productos["fecha_ingreso_bodega"][nID] = fecha
     if len(codigo) > 0:
@@ -61,7 +61,7 @@ def buscar_prodcuto(nID):
         
 # Suma el total del valor del o los articulos, habra que estudiar más sobre como mostrar los datos de una manera más sencilla y bonita.
 def suma_totales(nID):
-    if nID == 0:
+    if nID == 1:
         suma = 0
         for i in range(0,len(productos["id"])):
             print(f"{productos["cantidad"][i]} {productos["nombre"][i]} = {productos["cantidad"][i]*productos["valor_unitario"][i]}")
@@ -114,7 +114,7 @@ while True:
                 nombreProduct = input("Ingrese el nombre del producto: ").title()
                 cantidadProduct = int(input(f"Ingrese la cantidad recepcionada de {nombreProduct}: "))
                 valorUnitProduct = float(input("Ingrese el valor unitario del prodcuto: "))
-                quiebreStock = "???"
+                quiebreStock = float(input("Ingrese el quiebre de stock del producto: "))
                 fechaIngresoProduct = input("Ingrese fecha (formato DD/MM/YYYY): ")
                 registrar_producto(nombreProduct, cantidadProduct, valorUnitProduct, quiebreStock, fechaIngresoProduct, idProduct)
                 idProduct += 1
@@ -126,6 +126,9 @@ while True:
             print("ACTUALIZA INFORMACIÓN DE PRODUCTO")
             try:
                 idActual = int(input("Ingrese el 'ID' del producto que desea actualizar u modificar información: "))
+                if idBuscar not in productos["id"]:
+                    print("El 'ID' ingresado no existe")
+                    continue
                 print("Si no quiere cambiar la información, ignore el ingreso de datos y presione enter")
                 nombreProduct = input("Actualizar nombre del producto: ").title()
                 cantidadProduct = (input(f"Actualizar cantidad recepcionada: "))
@@ -135,7 +138,7 @@ while True:
                 codProduct = (input("Actualizar código del prodcuto: "))
                 actualizar_producto(productos["id"].index(idActual), nombreProduct, cantidadProduct, valorUnitProduct, quiebreStock, fechaIngresoProduct, codProduct) 
             except Exception as e:
-                print(f"El 'ID' ingresado no existe {e}")
+                print(f"Ocurrio un error inesperado en la Actualización  de datos {e}")
     
         case "4":
             while True:
@@ -143,9 +146,12 @@ while True:
                 print("ELIMINAR PRODUCTO")
                 try:
                     idRemove = int(input("Ingrese el 'ID' del producto que desea eliminar del registro: "))
+                    if idRemove not in productos["id"]:
+                        print(f"El 'ID' ingresado no existe, ingrese un 'ID' válido")
+                        continue
                     eliminar_producto(productos["id"].index(idRemove))
                 except Exception as e:
-                    print(f"El 'ID' ingresado no existe {e}")
+                    print(f"Ocurrio un error inesperado en la Eliminación del producto {e}")
                 aux = input("Desea eliminar otro artículo? Pulsa Enter, de lo contrario ingresa 'No' para volver al menú principal): ").lower()
                 if aux == "no":
                     break
@@ -155,15 +161,18 @@ while True:
             print("BUSCAR INFORMACIÓN DE PRODUCTO")
             try:
                 idBuscar = int(input("Ingrese el 'ID' del producto que desea visualizar en el registro: "))
+                if idBuscar not in productos["id"]:
+                    print("El 'ID' ingresado no existe")
+                    continue
                 buscar_prodcuto(idBuscar)
             except Exception as e:
-                print(f"El 'ID' ingresado no existe {e}")
+                print(f"Ocurrio un ERROR inesperado  en la búsqueda de datos {e}")
 
         case "6":
             os.system("cls")
             print("CALCULA EL VALOR DEL INVENTARIO")
             try:
-                idCalcul = int(input("Ingrese el 'ID' del producto que desee calcular o ingrese '0' para calcular el total del inventario: "))
+                idCalcul = int(input("Ingrese el 'ID' del producto que desee calcular o ingrese '1' para calcular el total del inventario: "))
                 print(f"{suma_totales(idCalcul)}")
             except:
                 print("Ingrese un valor válido, invalido")
