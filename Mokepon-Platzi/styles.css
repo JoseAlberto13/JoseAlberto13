@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-image: url(./assets/uso-del-fondo-del-juego-del-bosque-.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} 
+
+#seleccionar-mascota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo{
+    color: rgb(225, 255, 0); 
+    font-size: 56px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.9);
+    
+ }
+
+.subtitulo {
+    color: rgb(225, 255, 0);
+    font-size: 20px;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.9);
+
+}
+
+.tajetas {
+    display: flex;
+    gap: 10px;
+    
+
+}
+
+.tarjeta-de-mokepon {
+    width: 170px;
+    height: 220px;
+    background-color: #61bbde;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column ;
+    color: white;
+    transition: 0.6s;
+
+}
+
+/* INTENTO DE SELECION DE ESTADO  */
+
+.tarjeta-de-mokepon:hover {
+    color: black;
+    transform: scale(1.06);
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+button:hover {
+    color: black;
+    transform: scale(1.06);
+    background-color: lightgray;
+
+}
+
+.tarjeta-de-mokepon:active {
+    transform:scale(1.08) ;
+    background-color: #808080;
+    cursor: pointer;
+}
+
+button:active {
+    color: white;
+    transform:scale(1.07) ;
+    background-color: lightgray;
+}
+/* INTEGRAR EL CODIGO "AGREGA ANIMACION" */
+
+#boton-mascota {
+    width: 170px;
+    height: 40px;
+    border-radius: 20px;
+    background: #ffffff85;
+    border: 3px solid #ffffff85;
+    margin-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.tarjeta-de-mokepon img {
+    width: 160px;
+}
+
+input {
+    display: none;
+}
+
+#seleccionar-ataque {
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque {
+    background-color: #61bbde;
+    padding: 12px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    border-color: transparent;
+    width: 140px;
+    color: white;
+    font-family: 'Press Start 2P', cursive
+}
+
+#mensajes {
+    padding: 20px;
+    width: 390px;
+    margin-top: 12px;
+    border-radius: 14px;
+    background: #61bbde;
+    display: flex;
+    align-items: center; color: white;
+    flex-direction: column;
+    font-family: 'Press Start 2P', cursive
+}
+
+#boton-reiniciar {
+    border: none;
+    width: 164px;
+    height: 40px;
+    border-radius: 20px;
+    font-family: 'Press Start 2P', cursive
+}
+
+.ataques{
+    display: grid;
+    grid-template-columns: 160px 160px;
+}
