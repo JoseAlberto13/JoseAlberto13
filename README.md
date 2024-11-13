@@ -11,17 +11,17 @@
 
 ### ⚙️ &nbsp;GitHub Analytics
 <p align="left">
-  <a href="https://github.com/josealberto13">
-    <img height="164em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=josealberto13&layout=compact&langs_count=8&theme=algolia">
+  <a href="https://github.com/JoseAlberto13?tab=repositories">
+    <img height="164em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=JoseAlberto13&layout=compact&langs_count=8&theme=algolia">
   </a>
 </p>
 
 <div style="display: flex; justify-content: space-between; margin-top: 20px;">
   <a href="https://github.com/josealberto13">
-    <img height="164em" src="https://github-readme-streak-stats.herokuapp.com/?user=josealberto13&layout=compact&langs_count=8&theme=algolia">
+    <img height="164em" src="https://github-readme-streak-stats.herokuapp.com/?user=JoseAlberto13&layout=compact&langs_count=8&theme=algolia">
   </a>
   <a href="https://github.com/josealberto13">
-    <img height="164em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=josealberto13&show_icons=true&theme=algolia&include_all_commits=true&count_private=true">
+    <img height="164em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=JoseAlberto13&show_icons=true&theme=algolia&include_all_commits=true&count_private=true">
   </a>
 </div>
 
